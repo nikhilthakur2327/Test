@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Chocolate Day ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #3e2723, #5d4037, #795548);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 15px 0;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ff7043, #d84315);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .float {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card" id="firstCard">
+    <h1>🍫 Happy Chocolate Day ❤️</h1>
+
+    <p>
+        Some people give chocolates…  
+        I wish I could give you **every sweet moment** you deserve.
+    </p>
+
+    <p>
+        Because just like chocolate,  
+        **you make life richer, warmer, and impossible to resist.**
+    </p>
+
+    <button onclick="showLove()">Take a Chocolate 🍫</button>
+</div>
+
+<div class="card hidden" id="secondCard">
+    <h1>❤️ For You</h1>
+
+    <p>
+        If love had a flavor,  
+        it would taste like **you**.
+    </p>
+
+    <p>
+        Sweet, comforting,  
+        and something I never want to live without.
+    </p>
+
+    <p style="font-size:1.3rem; font-weight:bold;">
+        Happy Chocolate Day, my love 🍫❤️
+    </p>
+</div>
+
+<script>
+    function showLove() {
+        document.getElementById("firstCard").classList.add("hidden");
+        document.getElementById("secondCard").classList.remove("hidden");
+    }
+
+    // Floating chocolates & hearts
+    const emojis = ["🍫", "❤️", "🍩", "💖"];
+    setInterval(() => {
+        const span = document.createElement("span");
+        span.className = "float";
+        span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.animationDuration = (6 + Math.random() * 4) + "s";
+        document.body.appendChild(span);
+
+        setTimeout(() => span.remove(), 8000);
+    }, 400);
+</script>
+
+</body>
+</html>
