@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Propose Day Lavi Thakur ❤️</title>
+<title>Happy Propose Day ❤️</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -27,7 +27,7 @@ body {
     z-index: -1;
 }
 
-/* common card style */
+/* card base */
 .card {
     background: rgba(255, 182, 193, 0.95);
     padding: 40px;
@@ -90,7 +90,12 @@ p {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* hidden love message */
+/* ❤️ RED LOVE THEME ❤️ */
+.love-theme {
+    background: rgba(180, 0, 0, 0.95);
+}
+
+/* hide love message initially */
 #loveMessage {
     display: none;
 }
@@ -103,7 +108,7 @@ p {
 
 <!-- PROPOSAL CARD -->
 <div class="card" id="proposalCard">
-    <h1>Happy Propose Day Lavi Thakur💍</h1>
+    <h1>Happy Propose Day 💍</h1>
 
     <p>
         I don’t know how to write poetry,<br>
@@ -115,7 +120,7 @@ p {
         and more meaningful just knowing you’re part of it.
     </p>
 
-    <p><strong>Would you consider Living your Life with me Forever?</strong></p>
+    <p><strong>Will you be mine?</strong></p>
 
     <div class="buttons">
         <button class="btn yes" onclick="showLove()">YES 💖</button>
@@ -124,7 +129,7 @@ p {
 </div>
 
 <!-- LOVE MESSAGE CARD -->
-<div class="card" id="loveMessage">
+<div class="card love-theme" id="loveMessage">
     <h1>Of course you are mine, love ❤️</h1>
 
     <p>
@@ -141,10 +146,11 @@ p {
 </div>
 
 <script>
-/* show love message */
+/* show love message + turn page red */
 function showLove() {
     document.getElementById("proposalCard").style.display = "none";
     document.getElementById("loveMessage").style.display = "block";
+    document.querySelector(".overlay").style.background = "rgba(120, 0, 0, 0.6)";
 }
 
 /* playful NO button */
