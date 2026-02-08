@@ -1,131 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Propose Day ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>Happy Propose Day Lavi Thakur ❤️</title>
 
-    .container {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 600px;
-      color: white;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-    p {
-      font-size: 1.3rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
+/* overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 182, 193, 0.6);
+    z-index: -1;
+}
 
-    button {
-      padding: 12px 30px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 30px;
-      background: #ff2e63;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+/* common card style */
+.card {
+    background: rgba(255, 182, 193, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: pop 1s ease;
+}
 
-    button:hover {
-      transform: scale(1.1);
-      background: #ff004f;
-    }
+@keyframes pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 6s infinite ease-in;
-    }
+h1 {
+    color: white;
+    font-size: 34px;
+}
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
+p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+}
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
+/* buttons */
+.buttons {
+    margin-top: 25px;
+}
 
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+.btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
-    }
+.yes {
+    background: #ff3366;
+    color: white;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+.no {
+    background: white;
+    color: #ff3366;
+}
+
+/* floating hearts */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* hidden love message */
+#loveMessage {
+    display: none;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Happy Propose Day 💍</h1>
-    <p>
-      I don’t know how to write poetry,  
-      but I know how I feel when I think of you.
-    </p>
-    <p>
-      Life feels warmer, lighter, and more meaningful  
-      just knowing you’re part of it.
-    </p>
-    <p>
-      So today, with all my heart…
-      <br><strong>Will you be mine?</strong>
-    </p>
-    <button onclick="alert('I hope this made you smile ❤️')">
-      Click Me ❤️
-    </button>
-  </div>
 
-  <!-- Floating hearts -->
-  <script>
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 300);
-  </script>
+<div class="overlay"></div>
+
+<!-- PROPOSAL CARD -->
+<div class="card" id="proposalCard">
+    <h1>Happy Propose Day Lavi Thakur💍</h1>
+
+    <p>
+        I don’t know how to write poetry,<br>
+        but I know how I feel when I think of you.
+    </p>
+
+    <p>
+        Life feels warmer, lighter,<br>
+        and more meaningful just knowing you’re part of it.
+    </p>
+
+    <p><strong>Would you consider Living your Life with me Forever?</strong></p>
+
+    <div class="buttons">
+        <button class="btn yes" onclick="showLove()">YES 💖</button>
+        <button class="btn no" onmouseover="moveNo(this)">NO 🙈</button>
+    </div>
+</div>
+
+<!-- LOVE MESSAGE CARD -->
+<div class="card" id="loveMessage">
+    <h1>Of course you are mine, love ❤️</h1>
+
+    <p>
+        From this moment onward,<br>
+        my heart chose you — and it’s never changing.
+    </p>
+
+    <p>
+        Every smile, every dream,<br>
+        every tomorrow… I want it all with you.
+    </p>
+
+    <p><strong>I love you 💖</strong></p>
+</div>
+
+<script>
+/* show love message */
+function showLove() {
+    document.getElementById("proposalCard").style.display = "none";
+    document.getElementById("loveMessage").style.display = "block";
+}
+
+/* playful NO button */
+function moveNo(btn) {
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * 80 + "vw";
+    btn.style.top = Math.random() * 80 + "vh";
+}
+
+/* floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 400);
+</script>
+
 </body>
 </html>
