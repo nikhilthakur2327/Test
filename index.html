@@ -14,7 +14,6 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #f7e8e8, #d6a4a4);
     overflow: hidden;
 }
 
@@ -26,7 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    animation: fadeIn 1.5s ease;
+    background: linear-gradient(135deg, #f7e8e8, #d6a4a4);
 }
 
 #start h1 {
@@ -37,7 +36,6 @@ body {
 #start p {
     margin: 15px 0 30px;
     font-size: 1.2rem;
-    color: #4a2a2a;
 }
 
 button {
@@ -48,12 +46,6 @@ button {
     background: #8b3a3a;
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background: #6f2c2c;
-    transform: scale(1.08);
 }
 
 /* Promise screen */
@@ -62,27 +54,41 @@ button:hover {
     height: 100vh;
     width: 100vw;
     position: relative;
+    overflow: hidden;
 }
 
-#promise::before {
-    content: "";
+/* BACKGROUND LAYERS */
+.bg {
     position: absolute;
     inset: 0;
-    background: url("promise1.jpg") center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
     filter: brightness(0.6);
+    animation: zoomFade 20s ease-in-out infinite;
 }
 
+.bg.one {
+    background-image: url("promise1.jpg");
+    animation-delay: 0s;
+}
+
+.bg.two {
+    background-image: url("promise2.jpg");
+    animation-delay: 10s;
+}
+
+/* TEXT */
 .promise-text {
     position: relative;
+    z-index: 2;
     height: 100%;
-    padding: 60px 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    animation: fadeUp 2s ease;
 }
 
 .promise-text h2 {
@@ -96,15 +102,26 @@ button:hover {
     line-height: 1.8;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ANIMATION */
+@keyframes zoomFade {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
 }
 </style>
 </head>
@@ -120,37 +137,15 @@ button:hover {
 
 <!-- Promise Page -->
 <div id="promise">
+    <div class="bg one"></div>
+    <div class="bg two"></div>
+
     <div class="promise-text">
         <h2>My Promise to You 🤍</h2>
         <p>
             I promise to stand by you in every high and every low.  
             To listen when you speak, and to understand even when words fall short.  
-            I promise to choose you, respect you, and care for you — not just today,  
-            but every single day.
-        </p>
-    </div>
-</div>
-
-<script>
-function showPromise() {
-    document.getElementById("start").style.display = "none";
-    document.getElementById("promise").style.display = "block";
-}
-</script>
-
-</body>
-</html>
-
-
-<!-- Promise Page -->
-<div id="promise">
-    <div class="promise-container">
-        <img src="promise2.jpg" alt="Promise Image">
-        <h2>My Promise to You 🤍</h2>
-        <p>
-            I promise to stand by you in every moment — good or bad.  
-            To respect your dreams, protect your smile,  
-            and choose you every single day, without hesitation.
+            I promise to choose you, respect you, and care for you — every single day.
         </p>
     </div>
 </div>
