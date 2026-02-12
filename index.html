@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Promise Day 🤍</title>
+<title>Happy Kiss Day 💋</title>
 
 <style>
 * {
@@ -17,72 +17,58 @@ body {
     overflow: hidden;
 }
 
-/* First screen */
+/* ---------- SCREEN 1 ---------- */
 #start {
     height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
     text-align: center;
-    background: linear-gradient(135deg, #f7e8e8, #d6a4a4);
 }
 
 #start h1 {
-    font-size: 3rem;
-    color: #5a2a2a;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
 }
 
 #start p {
-    margin: 15px 0 30px;
     font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
 button {
-    padding: 15px 35px;
+    padding: 16px 36px;
     font-size: 1.1rem;
-    border-radius: 30px;
+    border-radius: 40px;
     border: none;
-    background: #8b3a3a;
-    color: white;
+    background: white;
+    color: #ff4d6d;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Promise screen */
-#promise {
+button:hover {
+    transform: scale(1.1);
+}
+
+/* ---------- SCREEN 2 ---------- */
+#kissPage {
     display: none;
+    position: relative;
     height: 100vh;
     width: 100vw;
-    position: relative;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     overflow: hidden;
 }
 
-/* BACKGROUND LAYERS */
-.bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.6);
-    animation: zoomFade 20s ease-in-out infinite;
-}
-
-.bg.one {
-    background-image: url("promise1.jpg");
-    animation-delay: 0s;
-}
-
-.bg.two {
-    background-image: url("promise2.jpg");
-    animation-delay: 10s;
-}
-
-/* TEXT */
-.promise-text {
+/* Center message */
+.content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     height: 100%;
-    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,36 +77,41 @@ button {
     text-align: center;
 }
 
-.promise-text h2 {
+.content h2 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.promise-text p {
-    max-width: 700px;
+.content p {
+    max-width: 600px;
     font-size: 1.3rem;
-    line-height: 1.8;
 }
 
-/* ANIMATION */
-@keyframes zoomFade {
-    0% {
-        opacity: 0;
-        transform: scale(1);
-    }
-    10% {
+/* Floating kisses container */
+.kisses {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Each kiss */
+.kiss {
+    position: absolute;
+    bottom: -50px;
+    font-size: 28px;
+    opacity: 0.9;
+    animation: floatUp linear infinite;
+}
+
+/* Animation */
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
-    50% {
-        opacity: 1;
-        transform: scale(1.08);
-    }
-    90% {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
         opacity: 0;
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1);
     }
 }
 </style>
@@ -128,34 +119,49 @@ button {
 
 <body>
 
-<!-- First Page -->
+<!-- SCREEN 1 -->
 <div id="start">
-    <h1>Happy Promise Day Mere Jaana 🤍</h1>
-    <p>I have something important to promise you, My Love…</p>
-    <button onclick="showPromise()">See My Promise</button>
+    <h1>Happy Kiss Day Mere jaana 💋</h1>
+    <p>I have something sweet for you...</p>
+    <button onclick="showKiss()">KISS ME 💋</button>
 </div>
 
-<!-- Promise Page -->
-<div id="promise">
-    <div class="bg one"></div>
-    <div class="bg two"></div>
+<!-- SCREEN 2 -->
+<div id="kissPage">
+    <div class="kisses" id="kisses"></div>
 
-    <div class="promise-text">
-        <h2>My Promise to You 🤍</h2>
+    <div class="content">
+        <h2>Kisses Just for You 💋</h2>
         <p>
-            I promise to stand by you in every high and every low.  
-            To listen when you speak, and to understand even when words fall short.  
-            I promise to choose you, respect you, and care for you — every single day.
-
-            I      L O V  E        Y O U    
+            Every kiss carries my love, my warmth, and my heart.  
+            This distance never stops me from kissing you.
+            I can't wait to feel those lipssssss on mine.
+            I wish I could hold you tightly and give those passionate ones
+            MUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUAAHHHHHHH
         </p>
     </div>
 </div>
 
 <script>
-function showPromise() {
+function showKiss() {
     document.getElementById("start").style.display = "none";
-    document.getElementById("promise").style.display = "block";
+    document.getElementById("kissPage").style.display = "block";
+}
+
+/* Generate floating kisses */
+const container = document.getElementById("kisses");
+
+for (let i = 0; i < 45; i++) {
+    const kiss = document.createElement("div");
+    kiss.classList.add("kiss");
+    kiss.innerHTML = "💋";
+
+    kiss.style.left = Math.random() * 100 + "vw";
+    kiss.style.fontSize = (20 + Math.random() * 40) + "px";
+    kiss.style.animationDuration = (5 + Math.random() * 6) + "s";
+    kiss.style.animationDelay = Math.random() * 5 + "s";
+
+    container.appendChild(kiss);
 }
 </script>
 
